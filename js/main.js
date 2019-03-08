@@ -1,5 +1,5 @@
 //把code写到#code和style标签里
-function writeCode(prefix,code,fn){
+function writeCss(prefix,code,fn){
   let domCode = document.querySelector('#code')
   let n = 0
   let id = setInterval(()=>{
@@ -13,7 +13,6 @@ function writeCode(prefix,code,fn){
     }
   },10)
 }
-
 function writeMarkdown(markdown,fn){
   let domPaper = document.querySelector('#paper>.content')
   let n = 0
@@ -28,26 +27,29 @@ function writeMarkdown(markdown,fn){
   },10)
 }
 
-var result = `/*
- *面试官你好，我是王毅
- *我将以动画的形式来介绍我自己
- *只用文字介绍太单调了
- *我就用代码来介绍吧
- *首先准备一些样式
- */
+var css1 = `/*
+* 面试官你好，我是王毅
+* 我将以动画的形式来介绍我自己
+* 只用文字介绍太单调了
+* 我就用代码来介绍吧
+*/
+
+/* 首先给所有元素加上过渡效果 */
 *{
  transition: all 1s;
  }
+ /* 加上背景 */
 html{
-  background: rgb(222,222,222);
+  background: rgb(0,43,54);
+  color: #808080; 
   font-size: 16px;
 }
+/* 加上边框 */
 #code{
   border: 2px solid #aaa;
   padding: 16px;
 }
-/*我需要一点代码高亮*/
-
+/* 代码高亮 */
 .token.selector{
   color: #690;
 }
@@ -58,54 +60,121 @@ html{
   color: #dd4a68;
 }
 
-/* 加点3D效果 */
+/* 360度旋转再回来 */
 #code{
   transform: rotate(360deg);
 }
-/* 不玩了，我来介绍一下自己 */
-/* 我需要一张白纸 */
+
+/* 现在我来介绍一下自己 */
+/* 准备一个编辑器 */
 #code{
   position: fixed;
   left: 0;
   width: 50%;
   height: 100%;
 }
-#paper{
-  position: fixed;
-  right: 0;
-  width: 50%;
+#code-wrapper{
+  width: 50%; left: 0; position: fixed; 
   height: 100%;
-  background:black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
 }
-#paper > .content{
-  background: white;
-  height: 100%;
-  width: 100%;
+#paper > .content {
+ display: block;
 }
+
+
+/* 于是我可以在白纸上写字了，请看右边*/ 
 `
-var result2 = `
-#paper{
-}
-/*
- * 接下来把 Markdown 变成 Html - marked.js
+
+var md = `
+# 自我介绍
+
+我叫 XXX 
+1990 年 1 月出生
+XXX 学校毕业
+自学前端半年
+希望应聘前端开发岗位
+
+# 技能介绍
+
+熟悉 JavaScript CSS
+
+# 项目介绍
+
+1. XXX 轮播
+2. XXX 简历
+3. XXX 画板
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+
+# 联系方式
+
+- QQ xxxxxxxx
+- Email xxxxxxxx
+- 手机 xxxxxxx
+`
+var css2 = `
+/* 接下来用一个优秀的库 marked.js
+ * 把 Markdown 变成 HTML
  */
 
-/*
-*这就是我会动的简历
-*谢谢观看！
-*/
-`
-var md = '# Marked in the browser\n\nRendered by **marked**.'
 
-writeCode('',result,()=>{
+`
+
+var css3 = `
+/*
+ * 会动的简历播放完了
+ * 谢谢观看!(>▽<)
+ */
+`
+writeCss('',css1,()=>{
   createPaper(()=>{
-    writeCode(result,result2,()=>{
-      writeMarkdown(md,()=>{
-        markdownToHtml(()=>{console.log(1)})
+    writeMarkdown(md,()=>{
+      writeCss(css1,css2,()=>{
+        markdownToHtml(()=>{
+          writeCss(css1 + css2,css3,()=>{
+            console.log('完成')
+          })
+        })
       })
     })
   })
