@@ -38,4 +38,11 @@
   padding: 16px;
   overflow: auto;
 }
-
+@keyframes breath{
+  0%{
+    box-shadow: 0 0 10px rgba(0,0,0,1)
+  }
+  100%{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+  }
+}

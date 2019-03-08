@@ -28,11 +28,11 @@ function writeMarkdown(markdown,fn){
 }
 
 var css1 = `/*
-* 面试官你好，我是王毅
-* 我将以动画的形式来介绍我自己
-* 只用文字介绍太单调了
-* 我就用代码来介绍吧
-*/
+ * 面试官你好，我是王毅 
+ * 我将以动画的形式来介绍我自己 
+ * 只用文字介绍太单调了
+ * 我就用代码来介绍吧
+ */
 
 /* 首先给所有元素加上过渡效果 */
 *{
@@ -67,12 +67,7 @@ html{
 
 /* 现在我来介绍一下自己 */
 /* 准备一个编辑器 */
-#code{
-  position: fixed;
-  left: 0;
-  width: 50%;
-  height: 100%;
-}
+
 #code-wrapper{
   width: 50%; left: 0; position: fixed; 
   height: 100%;
@@ -103,42 +98,6 @@ XXX 学校毕业
 1. XXX 轮播
 2. XXX 简历
 3. XXX 画板
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
-
-# 联系方式
-
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
 
 # 联系方式
 
