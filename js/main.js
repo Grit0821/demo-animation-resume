@@ -83,15 +83,14 @@ html{
 var md = `
 # 自我介绍
 
-我叫 XXX 
-1990 年 1 月出生
-XXX 学校毕业
-自学前端半年
+我叫 王毅 
+1995 年 8 月出生
+大连理工 学校毕业
 希望应聘前端开发岗位
 
 # 技能介绍
 
-熟悉 JavaScript CSS
+熟悉 JavaScript CSS HTML
 
 # 项目介绍
 
@@ -115,7 +114,6 @@ var css2 = `
 /* 接下来用一个优秀的库 marked.js
  * 把 Markdown 变成 HTML
  */
-
 
 `
 
