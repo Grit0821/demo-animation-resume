@@ -4,7 +4,7 @@ function writeCode(prefix,code,fn){
   let n = 0
   let id = setInterval(()=>{
     n += 1
-    domCode.innerHTML = Prism.highlight(  prefix +code.substring(0,n), Prism.languages.css, 'css')
+    domCode.innerHTML = Prism.highlight(prefix +code.substring(0,n), Prism.languages.css, 'css')
     styleTag.innerHTML = prefix + code.substring(0,n)
     domCode.scrollTop = domCode.scrollHeight
     if(n >= code.length){
@@ -13,8 +13,6 @@ function writeCode(prefix,code,fn){
     }
   },10)
 }
-
-
 
 function writeMarkdown(markdown,fn){
   let domPaper = document.querySelector('#paper>.content')
@@ -29,10 +27,6 @@ function writeMarkdown(markdown,fn){
     }
   },10)
 }
-
-
-
-
 
 var result = `/*
  *面试官你好，我是王毅
@@ -94,54 +88,29 @@ html{
 }
 `
 var result2 = `
-  #paper{
-  }
-  /*
-  * 接下来把 Markdown 变成 Html - marked.js
-  */
-  /*
-  *接下来给 HTML 加样式
-  */
-  /*
-  *这就是我会动的简历
-  *谢谢观看！
-  */
+#paper{
+}
+/*
+ * 接下来把 Markdown 变成 Html - marked.js
+ */
+
+/*
+*这就是我会动的简历
+*谢谢观看！
+*/
 `
-var md = `
-  # 自我介绍
-  
-  我叫王毅
-  1995 年 8 月出生
-  大连理工大学毕业
-  自学前端半年
-  希望应聘前端开发岗位
-
-  #技能介绍
-
-  熟悉 JavaScript CSS
-
-  #项目介绍
-
-  1. 苹果风格轮播
-  2. XXX简历
-  3. Canvas画板
-
-  #联系方式
-
-  QQ 592699945
-  email xxxxxxx
-  手机 xxxxxxx
-`
-
-
+var md = '# Marked in the browser\n\nRendered by **marked**.'
 
 writeCode('',result,()=>{
   createPaper(()=>{
     writeCode(result,result2,()=>{
-      writeMarkdown(md)
+      writeMarkdown(md,()=>{
+        markdownToHtml(()=>{console.log(1)})
+      })
     })
   })
 })
+
 
 function createPaper(fn){
   var paper = document.createElement('div')
@@ -153,4 +122,13 @@ function createPaper(fn){
   fn.call()
 }
 
+
+function markdownToHtml(fn){
+  var div = document.createElement('div')  
+  div.className = 'html markdown-body'
+  div.innerHTML = marked(md)
+  let domPaper = document.querySelector('#paper > .content')
+  domPaper.replaceWith(div)
+  fn.call()
+}
 
