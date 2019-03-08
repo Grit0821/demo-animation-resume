@@ -60,10 +60,6 @@ html{
   color: #dd4a68;
 }
 
-/* 360度旋转再回来 */
-#code{
-  transform: rotate(360deg);
-}
 
 /* 现在我来介绍一下自己 */
 /* 准备一个编辑器 */
