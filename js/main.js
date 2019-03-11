@@ -11,7 +11,7 @@ function writeCss(prefix,code,fn){
       window.clearInterval(id)
       fn.call()
     }
-  },50)
+  },5)
 }
 function writeMarkdown(markdown,fn){
   let domPaper = document.querySelector('#paper>.content')
@@ -24,7 +24,7 @@ function writeMarkdown(markdown,fn){
       window.clearInterval(id)
       fn.call()
     }
-  },50)
+  },5)
 }
 
 var css1 = `/*
@@ -147,7 +147,7 @@ function createPaper(fn){
 
 function markdownToHtml(fn){
   var div = document.createElement('div')  
-  div.className = 'html markdown-body'
+  div.className = 'html markdown-body' // 两个class，中间用空格隔开，注意区分
   div.innerHTML = marked(md)
   let domPaper = document.querySelector('#paper > .content')
   domPaper.replaceWith(div)
